@@ -1,13 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace TwitterFeed
 {
     class Program
     {
-        static void Main(string[] args) => Console.WriteLine("Hello!!");
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Hello!!");
+           
+            Task<string> task = GetAccessToken();
+            task.Wait();
+            var token = task.Result;
+            Console.WriteLine("Token: " + token);
+
+            Console.WriteLine("[DONE]");
+            Console.ReadLine();
+        }
+
+        static async Task<string> GetAccessToken()
+        {
+            string OAuthConsumerKey = "fsxxk230EmW9lcySr9bxQ";
+            string OAuthConsumerSecret = "MtJMRChd0HTnvlQYku6sbQfAyzR1Yol0HZYxomjqiww";
+            var httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.twitter.com/oauth2/token");
+            var customerInfo = Convert.ToBase64String(new UTF8Encoding()
+                                      .GetBytes(OAuthConsumerKey + ":" + OAuthConsumerSecret));
+            request.Headers.Add("Authorization", "Basic " + customerInfo);
+            request.Content = new StringContent("grant_type=client_credentials",
+                                                    Encoding.UTF8, "application/x-www-form-urlencoded");
+
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            string json = await response.Content.ReadAsStringAsync();
+            var serializer = new JavaScriptSerializer();
+            dynamic item = serializer.Deserialize<object>(json);
+            return item["access_token"];
+        }
     }
 }
