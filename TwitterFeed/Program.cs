@@ -14,13 +14,23 @@ namespace TwitterFeed
         {
 
             Console.WriteLine("Hello!!");
-           
+
+            Console.WriteLine("Requesting Access Token...");
             Task<string> task = GetAccessToken();
             task.Wait();
             var token = task.Result;
             Console.WriteLine("Token: " + token);
 
-            Console.WriteLine("[DONE]");
+            var twittsTask = GetTweets("VisualStudio", 10, token);
+            Console.WriteLine("Requesting Twitts...");
+            twittsTask.Wait();
+            var twitts = twittsTask.Result;
+
+            foreach (string t in twitts)
+            {
+                Console.WriteLine(t);
+            }
+
             Console.ReadLine();
         }
 
@@ -42,6 +52,30 @@ namespace TwitterFeed
             var serializer = new JavaScriptSerializer();
             dynamic item = serializer.Deserialize<object>(json);
             return item["access_token"];
+        }
+
+        static async Task<IEnumerable<string>> GetTweets(string userName, int count, string accessToken = null)
+        {
+            if (accessToken == null)
+            {
+                accessToken = await GetAccessToken();
+            }
+
+            var requestUserTimeline = new HttpRequestMessage(HttpMethod.Get,
+                string.Format("https://api.twitter.com/1.1/statuses/user_timeline.json?count={0}&screen_name={1}&trim_user=1&exclude_replies=1", count, userName));
+
+            requestUserTimeline.Headers.Add("Authorization", "Bearer " + accessToken);
+            var httpClient = new HttpClient();
+            HttpResponseMessage responseUserTimeLine = await httpClient.SendAsync(requestUserTimeline);
+            var serializer = new JavaScriptSerializer();
+            dynamic json = serializer.Deserialize<object>(await responseUserTimeLine.Content.ReadAsStringAsync());
+            var enumerableTweets = (json as IEnumerable<dynamic>);
+
+            if (enumerableTweets == null)
+            {
+                return null;
+            }
+            return enumerableTweets.Select(t => (string)(t["text"].ToString()));
         }
     }
 }
