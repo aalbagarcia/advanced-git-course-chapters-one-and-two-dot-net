@@ -17,9 +17,12 @@ namespace TwitterFeed
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No has pasado un nombre de usuario como argumento.");
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Uso: TwitterFeed [twitterHandle]");
                 Console.WriteLine("Por ejemplo: TwitterFeed.exe VisualStudio");
+                Console.ResetColor();
                 Environment.Exit(0);
             }
 
@@ -30,9 +33,16 @@ namespace TwitterFeed
 
             foreach (var t in twitts)
             {
+
                 //https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
-                string output = string.Format("{0} -> {1}", t["created_at"].ToString(), t["text"].ToString());
-                Console.WriteLine(output);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(t["created_at"].ToString());
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(" -> ");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write(t["text"].ToString());
+                Console.Write("\n");
+                Console.ResetColor();
             }
 
             Console.ReadLine();
