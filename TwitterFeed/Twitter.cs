@@ -40,7 +40,7 @@ namespace TwitterFeed
             return item["access_token"];
         }
 
-        public async Task<IEnumerable<string>> GetTweets(string userName, int count, string accessToken = null)
+        public async Task<IEnumerable<dynamic>> GetTweets(string userName, int count, string accessToken = null)
         {
             if (accessToken == null)
             {
@@ -62,7 +62,7 @@ namespace TwitterFeed
             {
                 return null;
             }
-            return enumerableTweets.Select(t => (string)(t["text"].ToString()));
+            return enumerableTweets;
         }
     }
 }

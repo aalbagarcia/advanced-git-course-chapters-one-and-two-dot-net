@@ -17,9 +17,11 @@ namespace TwitterFeed
             tweetsTask.Wait();
             var twitts = tweetsTask.Result;
 
-            foreach (string t in twitts)
+            foreach (var t in twitts)
             {
-                Console.WriteLine(t);
+                //https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
+                string output = string.Format("{0} -> {1}", t["created_at"].ToString(), t["text"].ToString());
+                Console.WriteLine(output);
             }
 
             Console.ReadLine();
