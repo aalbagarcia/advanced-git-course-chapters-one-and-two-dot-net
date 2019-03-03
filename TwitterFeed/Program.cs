@@ -10,10 +10,17 @@ namespace TwitterFeed
     {
         static void Main(string[] args)
         {
-            string twitterHandle = "VisualStudio";
+            string twitterHandle = "";
             if (args.Length == 1)
             {
                 twitterHandle = args[0];
+            }
+            else
+            {
+                Console.WriteLine("No has pasado un nombre de usuario como argumento.");
+                Console.WriteLine("Uso: TwitterFeed [twitterHandle]");
+                Console.WriteLine("Por ejemplo: TwitterFeed.exe VisualStudio");
+                Environment.Exit(0);
             }
 
             Twitter twitter = new Twitter("fsxxk230EmW9lcySr9bxQ", "MtJMRChd0HTnvlQYku6sbQfAyzR1Yol0HZYxomjqiww");
