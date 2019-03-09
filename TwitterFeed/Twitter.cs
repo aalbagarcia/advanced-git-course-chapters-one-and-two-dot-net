@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Net.Http;
-
+// Comentarios añadidos por nuestro compañeros (simulado como commit en Bitbucket/Github/Gitlab)
 namespace TwitterFeed
 {
     class Twitter
