@@ -19,7 +19,7 @@ namespace TwitterFeed
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No has pasado un nombre de usuario como argumento.");
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Uso: TwitterFeed [twitterHandle]");
                 Console.WriteLine("Por ejemplo: TwitterFeed.exe VisualStudio");
                 Console.ResetColor();
