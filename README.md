@@ -22,6 +22,7 @@ Con objeto de agilizar el desarrollo del curso, y no emplear más tiempo del nec
 * [git course day one (C# and Visual Studio) - Step 5: Show the the date of the tweet along with the text](https://gist.github.com/aalbagarcia/47281b4105bed96282a4fe8c07aecaec)
 * [git course day one (C# and Visual Studio) - Step 6: Exit program if no twitter handle is passed as argument](https://gist.github.com/aalbagarcia/a5a6b5a2dc986542ed19080303f09aee)
 * [git course day one (C# and Visual Studio) - Step 7: Color the console output](https://gist.github.com/aalbagarcia/fa9e0928992ef429cd3b11ac53ba07b4)
+* [git course day one (C# and Visual Studio) - Step 8: show tweet text in blue](https://gist.github.com/aalbagarcia/7810bbf8cfbdd73d875e6022a1cacb5d)
 
 # Software utilizado
 
