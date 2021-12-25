@@ -19,8 +19,8 @@ Con objeto de agilizar el desarrollo del curso, y no emplear más tiempo del nec
 * [git course day one (C# and Visual Studio) - Step 2: Retrieve 10 tweets from a twitter handle](https://gist.github.com/aalbagarcia/b31b0e7a7a2813c7793a80e22c76713b)
 * [git course day one (C# and Visual Studio) - Step 3: Extract Twitter class](https://gist.github.com/aalbagarcia/8c4906004a2ad81d8831a663398a9cbf)
 * [git course day one (C# and Visual Studio) - Step 4: Pass twitter handle as argument](https://gist.github.com/aalbagarcia/1ebd4237ade73e33c5ddfe568835a7ef)
-* [git course day one (C# and Visual Studio) - Step 5: Exit program if no twitter handle is passed as argument](https://gist.github.com/aalbagarcia/a5a6b5a2dc986542ed19080303f09aee)
-* [git course day one (C# and Visual Studio) - Step 6: Show the the date of the tweet along with the text](https://gist.github.com/aalbagarcia/47281b4105bed96282a4fe8c07aecaec)
+* [git course day one (C# and Visual Studio) - Step 5: Show the the date of the tweet along with the text](https://gist.github.com/aalbagarcia/47281b4105bed96282a4fe8c07aecaec)
+* [git course day one (C# and Visual Studio) - Step 6: Exit program if no twitter handle is passed as argument](https://gist.github.com/aalbagarcia/a5a6b5a2dc986542ed19080303f09aee)
 * [git course day one (C# and Visual Studio) - Step 7: Color the console output](https://gist.github.com/aalbagarcia/fa9e0928992ef429cd3b11ac53ba07b4)
 
 # Software utilizado
